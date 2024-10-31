@@ -6,12 +6,16 @@ import {
   GenerateContentResult,
   Part
 } from "@google/generative-ai";
+import { env } from './env';
 
-if (!process.env.GEMINI_API_KEY) {
-  throw new Error('Missing Gemini API key');
+// Initialize Gemini with error handling
+let genAI: GoogleGenerativeAI;
+try {
+  genAI = new GoogleGenerativeAI(env.GEMINI_API_KEY!);
+} catch (error) {
+  console.error('Failed to initialize Gemini AI:', error);
+  throw error;
 }
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Define safety settings
 const safetySettings = [
