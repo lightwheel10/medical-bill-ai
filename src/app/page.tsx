@@ -27,7 +27,6 @@ export default function Home() {
       setImageData(capturedImage);
 
       const result = await analyzeBillImage(capturedImage);
-      setAnalysis(result);
       
       const response = await fetch('/api/analysis', {
         method: 'POST',
@@ -49,11 +48,14 @@ export default function Home() {
         throw new Error('Invalid response from server');
       }
 
+      setAnalysis(result);
+
       router.push(`/result/${data.id}`);
 
     } catch (err) {
       console.error('Error:', err);
       setError(err instanceof Error ? err.message : 'Failed to analyze bill');
+      setAnalysis(null);
     } finally {
       setIsAnalyzing(false);
     }
