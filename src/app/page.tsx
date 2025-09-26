@@ -11,6 +11,7 @@ import Image from "next/image";
 import { ProcessingView } from "@/components/processing-view";
 import { useRouter } from "next/navigation";
 import { ErrorBoundary } from "@/components/error-boundary";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
@@ -270,9 +271,15 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-8 flex items-center justify-between text-sm text-gray-400 relative">
             <p>© 2024 Medical Bill Analysis. All rights reserved.</p>
             <div className="flex items-center gap-4">
-              <a 
-                href="https://github.com/lightwheel10/medical-bill-ai" 
-                target="_blank" 
+              <Link
+                href="/contact"
+                className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+              >
+                Contact Us
+              </Link>
+              <a
+                href="https://github.com/lightwheel10/medical-bill-ai"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-blue-400 transition-colors"
               >
