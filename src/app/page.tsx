@@ -11,6 +11,7 @@ import Image from "next/image";
 import { ProcessingView } from "@/components/processing-view";
 import { useRouter } from "next/navigation";
 import { ErrorBoundary } from "@/components/error-boundary";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
@@ -370,6 +371,10 @@ export default function Home() {
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between md:px-10 lg:px-14">
             <p>© 2024 Medical Bill Analysis. Crafted for clarity and peace of mind.</p>
             <div className="flex flex-wrap items-center gap-4">
+              <Link href="/contact" className="flex items-center gap-2 transition hover:text-sky-300">
+                <MessageSquare className="h-4 w-4" />
+                Contact us
+              </Link>
               <a
                 href="https://github.com/lightwheel10/medical-bill-ai"
                 target="_blank"
